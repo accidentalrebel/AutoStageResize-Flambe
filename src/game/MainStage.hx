@@ -1,6 +1,7 @@
 package game;
 import flambe.display.Sprite;
 import flambe.math.Point;
+import flambe.math.Rectangle;
 import flambe.System;
 
 class MainStage
@@ -19,9 +20,7 @@ class MainStage
 		_designSizeWidth = designSizeWidth;
 		_designSizeHeight = designSizeHeight;
 		
-		_mainStageSprite = new Sprite();
-		System.root.add(_mainStageSprite);
-		
+		setupMainStageSprite();
 		setupStageResizeListener();
 		
 		resizeStage();
@@ -35,6 +34,13 @@ class MainStage
 	}
 	
 	// ============================================= SETUP ============================================= //
+	static private function setupMainStageSprite() 
+	{
+		_mainStageSprite = new Sprite();
+		_mainStageSprite.scissor = new Rectangle(0, 0, _designSizeWidth, _designSizeHeight);
+		System.root.add(_mainStageSprite);
+	}
+	
 	static function setupStageResizeListener() 
 	{
 		System.stage.resize.connect(onStageResize);
