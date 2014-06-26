@@ -3,6 +3,7 @@ package game;
 import flambe.Entity;
 import flambe.input.PointerEvent;
 import flambe.input.TouchPoint;
+import flambe.math.Point;
 import flambe.System;
 import flambe.asset.AssetPack;
 import flambe.asset.Manifest;
@@ -60,8 +61,7 @@ class Main
 	// ============================================= EVENTS ============================================= //
 	static private function onTouchDown(pointerEvent : PointerEvent) 
 	{
-		var xPos : Float = (pointerEvent.viewX - MainStage._mainStageSprite.x._) / MainStage.computedStageScale;
-		var yPos : Float = (pointerEvent.viewY - MainStage._mainStageSprite.y._) / MainStage.computedStageScale;
-		_planeSprite.setXY(xPos, yPos);
+		var adjustedPosition : Point = MainStage.convertToMainStageCoordinates(new Point(pointerEvent.viewX, pointerEvent.viewY));
+		_planeSprite.setXY(adjustedPosition.x, adjustedPosition.y);
 	}
 }

@@ -1,5 +1,6 @@
 package game;
 import flambe.display.Sprite;
+import flambe.math.Point;
 import flambe.System;
 
 class MainStage
@@ -8,7 +9,7 @@ class MainStage
 	static public var width(get, null) : Float;
 	static public var height(get, null) : Float;
 	
-	static public var _mainStageSprite:Sprite;
+	static private var _mainStageSprite:Sprite;
 	static private var _designSizeWidth:Float;
 	static private var _designSizeHeight:Float;
 	static private var _computedStageScale:Float;
@@ -26,6 +27,13 @@ class MainStage
 		resizeStage();
 	}
 	
+	static public function convertToMainStageCoordinates(positionToConvert : Point) : Point
+	{
+		var xPos : Float = (positionToConvert.x - _mainStageSprite.x._) / _computedStageScale;
+		var yPos : Float = (positionToConvert.y - _mainStageSprite.y._) / _computedStageScale;
+		return new Point(xPos, yPos);
+	}
+	
 	// ============================================= SETUP ============================================= //
 	static function setupStageResizeListener() 
 	{
@@ -38,7 +46,7 @@ class MainStage
 		resizeStage();
 	}
 	
-	// ============================================= HELPERS ============================================= //
+	// ============================================= HELPER FUNCTIONS ============================================= //
 	static function resizeStage() 
 	{		
 		_computedStageScale = computeScaleAccordingToNewStageDimensions();     	
