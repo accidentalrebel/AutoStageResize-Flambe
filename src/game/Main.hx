@@ -1,16 +1,15 @@
 package game;
 
-import flambe.display.Font;
-import flambe.display.TextSprite;
-import flambe.Entity;
-import flambe.input.PointerEvent;
-import flambe.input.TouchPoint;
-import flambe.math.Point;
-import flambe.System;
 import flambe.asset.AssetPack;
 import flambe.asset.Manifest;
 import flambe.display.FillSprite;
+import flambe.display.Font;
 import flambe.display.ImageSprite;
+import flambe.display.TextSprite;
+import flambe.Entity;
+import flambe.input.PointerEvent;
+import flambe.math.Point;
+import flambe.System;
 
 class Main
 {

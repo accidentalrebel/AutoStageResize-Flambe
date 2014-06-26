@@ -1,3 +1,8 @@
+//
+// MainStage.hx by AccidentalRebel
+// https://github.com/accidentalrebel/AutoStageResize-Flambe
+// http://www.accidentalrebel.com
+
 package game;
 import flambe.display.Sprite;
 import flambe.math.Point;
