@@ -54,7 +54,8 @@ class Main
 	
 	static private function setupTouchListeners() 
 	{
-		_backgroundSprite.pointerDown.connect(onTouchDown);
+		//_backgroundSprite.pointerDown.connect(onTouchDown);
+		System.pointer.down.connect(onTouchDown);
 	}
 	
 	// ============================================= EVENTS ============================================= //

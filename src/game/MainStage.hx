@@ -30,7 +30,24 @@ class MainStage
 	{
 		var xPos : Float = (positionToConvert.x - _mainStageSprite.x._) / _computedStageScale;
 		var yPos : Float = (positionToConvert.y - _mainStageSprite.y._) / _computedStageScale;
-		return new Point(xPos, yPos);
+		var convertedPosition : Point = capPositionToMainStage(new Point(xPos, yPos));
+		
+		return convertedPosition;
+	}
+	
+	static private function capPositionToMainStage(position:Point) 
+	{
+		if ( position.x < 0 )
+			position.x = 0;
+		else if ( position.x > MainStage.width )
+			position.x = MainStage.width;
+			
+		if ( position.y < 0 )
+			position.y = 0;
+		else if ( position.y > MainStage.height )
+			position.y = MainStage.height;
+			
+		return position;
 	}
 	
 	// ============================================= SETUP ============================================= //
