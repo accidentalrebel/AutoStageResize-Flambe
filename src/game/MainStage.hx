@@ -14,7 +14,7 @@ class MainStage
 	static private var _designSizeWidth:Float;
 	static private var _designSizeHeight:Float;
 	static private var _computedStageScale:Float;
-	
+
 	static public function init(designSizeWidth : Float, designSizeHeight : Float) 
 	{
 		_designSizeWidth = designSizeWidth;
@@ -33,21 +33,6 @@ class MainStage
 		var convertedPosition : Point = capPositionToMainStage(new Point(xPos, yPos));
 		
 		return convertedPosition;
-	}
-	
-	static private function capPositionToMainStage(position:Point) 
-	{
-		if ( position.x < 0 )
-			position.x = 0;
-		else if ( position.x > MainStage.width )
-			position.x = MainStage.width;
-			
-		if ( position.y < 0 )
-			position.y = 0;
-		else if ( position.y > MainStage.height )
-			position.y = MainStage.height;
-			
-		return position;
 	}
 	
 	// ============================================= SETUP ============================================= //
@@ -102,6 +87,21 @@ class MainStage
 		
 		_mainStageSprite.x._ = xDiff / 2;
 		_mainStageSprite.y._ = yDiff / 2;
+	}
+	
+	static private function capPositionToMainStage(position:Point) 
+	{
+		if ( position.x < 0 )
+			position.x = 0;
+		else if ( position.x > MainStage.width )
+			position.x = MainStage.width;
+			
+		if ( position.y < 0 )
+			position.y = 0;
+		else if ( position.y > MainStage.height )
+			position.y = MainStage.height;
+			
+		return position;
 	}
 	
 	// ============================================= GETTERS AND SETTERS ============================================= //
