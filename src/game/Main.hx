@@ -1,6 +1,7 @@
 package game;
 
 import flambe.Entity;
+import flambe.input.PointerEvent;
 import flambe.input.TouchPoint;
 import flambe.System;
 import flambe.asset.AssetPack;
@@ -10,6 +11,8 @@ import flambe.display.ImageSprite;
 
 class Main
 {
+	static private var _planeSprite:ImageSprite;
+	
     private static function main ()
     {
         System.init();
@@ -41,18 +44,22 @@ class Main
 	
 	static private function setupPlane(pack : AssetPack) 
 	{
-		var plane = new ImageSprite(pack.getTexture("plane"));
-        System.root.addChild(new Entity().add(plane));
+		_planeSprite = new ImageSprite(pack.getTexture("plane"));
+		_planeSprite.centerAnchor();
+		
+        System.root.addChild(new Entity().add(_planeSprite));
 	}
 	
 	static private function setupTouchListeners() 
 	{
-		System.touch.down.connect(onTouchDown);
+		System.pointer.down.connect(onTouchDown);
 	}
 	
 	// ============================================= EVENTS ============================================= //
-	static private function onTouchDown(touchPoint : TouchPoint) 
+	static private function onTouchDown(pointerEvent : PointerEvent) 
 	{
-		trace("Touch detected!");
+		var xPos : Float = pointerEvent.viewX;
+		var yPos : Float = pointerEvent.viewY;
+		_planeSprite.setXY(xPos, yPos);
 	}
 }
