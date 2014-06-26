@@ -8,7 +8,7 @@ class MainStage
 	static public var width(get, null) : Float;
 	static public var height(get, null) : Float;
 	
-	static private var _mainStageSprite:Sprite;
+	static public var _mainStageSprite:Sprite;
 	static private var _designSizeWidth:Float;
 	static private var _designSizeHeight:Float;
 	static private var _computedStageScale:Float;
